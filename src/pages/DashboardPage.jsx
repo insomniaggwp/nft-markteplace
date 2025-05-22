@@ -16,15 +16,27 @@ const DashboardPage = () => {
       const res = await fetchCampaigns();
       setCampaigns(res);
     } catch (error) {
-      alert('Gagal mengambil campaign. Coba lagi nanti.');
-      console.error(error);
+      alert(error.message);
     }
   }
 
   return (
     <div className="p-6">
       Dashboard
-      <CardContent/>
+      <div className="flex flex-wrap gap-8">
+        {
+          campaigns.map((campaign) =>
+            <CardContent
+              id={campaign.id}
+              className="flex-1"
+              brand={campaign.brand}
+              campaignName={campaign.campaignName}
+              caption={campaign.caption}
+              status={campaign.status}
+            />
+          )
+        }
+      </div>
     </div>
   );
 };

@@ -5,11 +5,16 @@ const BaseTemplate = ({ children }) => {
   const user = JSON.parse(localStorage.getItem("auth"));
 
   const handleLogout = async () => {
-    const isSuccessLogout = await logout();
-    if (isSuccessLogout) {
-      window.location.href = "/";
-    } else {
-      alert('Logout Failed')
+    try {
+      const isSuccessLogout = await logout();
+      if (isSuccessLogout) {
+        window.location.href = "/";
+        alert('Logout successful.')
+      } else {
+       throw new Error('Logout Failed') 
+      }
+    } catch (error) {
+      alert(error.message)
     }
   };
 
@@ -24,7 +29,7 @@ const BaseTemplate = ({ children }) => {
         </div>
       </div>
 
-      <div className="max-w-screen-md mx-auto px-4">
+      <div className="max-w-[1500px] mx-auto px-4">
         {children}
       </div>
     </>

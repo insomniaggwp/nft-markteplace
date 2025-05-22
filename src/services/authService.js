@@ -4,7 +4,7 @@ export async function login({ username, password }) {
   showLoading();
   try {
     
-    await new Promise(resolve => setTimeout(resolve, 3000));
+    await new Promise(resolve => setTimeout(resolve, 1000));
 
     if (username === "administrator1x" && password === "1xpassword") {
       localStorage.setItem('auth', JSON.stringify({
@@ -14,7 +14,7 @@ export async function login({ username, password }) {
       }));
       return true;
     }
-    throw new Error() 
+    throw new Error()
   } catch {
     return false;
   } finally {
@@ -22,8 +22,19 @@ export async function login({ username, password }) {
   }
 }
 
-export function logout() {
-  localStorage.removeItem("auth");
+export async function logout() {
+  showLoading();
+  try {
+
+    await new Promise(resolve => setTimeout(resolve, 1000));
+   
+    localStorage.removeItem("auth");
+    return true;
+  } catch (error) {
+    return { error: error.message || 'Unknown error' };
+  } finally {
+    hideLoading()
+  }
 }
 
 export function isLoggedIn() {
