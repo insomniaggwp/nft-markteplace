@@ -8,7 +8,8 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "mock-api": "json-server --watch db/campaigns.json --port 3001"
+    "mock-api": "json-server --watch db/campaigns.json --port 3001",
+    "reset-mock": "cp db/campaigns.backup.json db/campaigns.json"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.7",
