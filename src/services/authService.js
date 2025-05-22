@@ -1,12 +1,25 @@
-export function login(username, password) {
-  if (username === "administrator1x" && password === "1xpassword") {
-    localStorage.setItem('auth', JSON.stringify({
-      token: 'mysecrettoken',
-      user: { username, isLogin: true }
-    }));
-    return true;
+import { showLoading, hideLoading } from "../utils/loadingService";
+
+export async function login({ username, password }) {
+  showLoading();
+  try {
+    
+    await new Promise(resolve => setTimeout(resolve, 3000));
+
+    if (username === "administrator1x" && password === "1xpassword") {
+      localStorage.setItem('auth', JSON.stringify({
+        token: 'mysecrettoken',
+        username,
+        isLogin: true
+      }));
+      return true;
+    }
+    throw new Error() 
+  } catch {
+    return false;
+  } finally {
+    hideLoading()
   }
-  return false;
 }
 
 export function logout() {

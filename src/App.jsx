@@ -3,10 +3,12 @@ import ProtectedRoute from './routes/ProtectedRoute';
 import LoginPage from './pages/LoginPage';
 import DashboardPage from './pages/DashboardPage';
 import CreateContentPage from './pages/CreateContentPage';
+import GlobalLoading from './components/GlobalLoading';
 
 function App() {
   return (
     <BrowserRouter>
+      <GlobalLoading />
       <Routes>
         <Route path="/" element={<LoginPage />} />
         <Route
