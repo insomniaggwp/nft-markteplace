@@ -1,8 +1,11 @@
+import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { fetchCampaigns, fetchDeleteCampaign } from "../services/api";
 import CardContent from "../components/CardConten";
+import Button from "../components/Button";
 
 const DashboardPage = () => {
+  const navigate = useNavigate();
   const [campaigns, setCampaigns] = useState([]);
 
   useEffect(() => {
@@ -36,7 +39,12 @@ const DashboardPage = () => {
 
   return (
     <div className="p-6">
-      Dashboard
+      <div className="w-64 mb-4">
+        <Button variant="secondary" onClick={() => navigate('/createContent')}>
+          Create Content
+        </Button>
+      </div>
+
       <div className="flex flex-wrap gap-8">
         {
           campaigns.map((campaign) =>
@@ -54,6 +62,7 @@ const DashboardPage = () => {
           )
         }
       </div>
+
     </div>
   );
 };
