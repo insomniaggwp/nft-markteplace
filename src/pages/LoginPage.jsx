@@ -2,19 +2,20 @@ import { useNavigate } from "react-router-dom";
 import InputField from "../components/InputField";
 import Button from "../components/Button";
 import useInput from "../hooks/useInput";
+import { login } from "../services/authService";
 
 const LoginPage = () => {
   const [username, onUsernameChange] = useInput("");
   const [password, onPasswordChange] = useInput("");
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    if (username === "administrator1x" && password === "1xpassword") {
-      localStorage.setItem("auth", JSON.stringify({ isLogin: true, username }));
+    const isSuccessLogin = await login({ username, password })
+    if (isSuccessLogin) {
       navigate("/dashboard");
     } else {
-      alert("Username atau password salah");
+      alert('Wrong Username or Password')
     }
   };
 

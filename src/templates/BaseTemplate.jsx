@@ -1,11 +1,16 @@
 import Button from "../components/Button";
+import { logout } from "../services/authService";
 
 const BaseTemplate = ({ children }) => {
   const user = JSON.parse(localStorage.getItem("auth"));
 
-  const handleLogout = () => {
-    localStorage.removeItem("auth");
-    window.location.href = "/";
+  const handleLogout = async () => {
+    const isSuccessLogout = await logout();
+    if (isSuccessLogout) {
+      window.location.href = "/";
+    } else {
+      alert('Logout Failed')
+    }
   };
 
   return (
