@@ -8,10 +8,13 @@ const statusColor = {
 
 export default function CardContent(campaign) {
   const {
+    id,
     brand = 'brand',
     campaignName = 'campaign',
     image = '@/src/assets/react.svg',
-    status = 'draft'
+    status = 'draft',
+    onDeleteContent,
+    onEditContent
   } = campaign;
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -30,7 +33,7 @@ export default function CardContent(campaign) {
   }, []);
 
    return (
-    <div className="relative rounded-xl border border-gray-200 bg-white max-w-sm w-full overflow-hidden shadow-elevation-2 cursor-pointer hover:shadow-primary">
+    <div id={`card-content-${id}`} className="relative rounded-xl border border-gray-200 bg-white max-w-sm w-full overflow-hidden shadow-elevation-2 cursor-pointer hover:shadow-primary">
       {/* Header */}
       <div className="flex items-center justify-between px-4 py-2">
         <div className="flex items-center gap-2">
@@ -46,14 +49,19 @@ export default function CardContent(campaign) {
             ref={menuRef}
             className="absolute right-4 top-10 z-10 w-28 bg-white shadow-elevation-1 rounded-md border text-sm text-black"
           >
+            {
+              status !== 'posted' && 
+                (
+                  <button
+                    onClick={onEditContent}
+                    className="block w-full text-left px-4 py-2 hover:bg-gray-100"
+                  >
+                    Edit
+                  </button>
+                )
+            }
             <button
-              onClick={() => alert('Edit clicked')}
-              className="block w-full text-left px-4 py-2 hover:bg-gray-100"
-            >
-              Edit
-            </button>
-            <button
-              onClick={() => alert('Delete clicked')}
+              onClick={onDeleteContent}
               className="block w-full text-left px-4 py-2 hover:bg-gray-100 text-danger"
             >
               Delete
