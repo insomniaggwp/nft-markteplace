@@ -7,12 +7,19 @@
   --breakpoint-lg: 976px;
 
   --color-primary: #4faab4;
-  --color-info: #439ff5;
+  --color-primary-darken: #143654;
   --color-secondary: #fd9434;
+  --color-secondary-darken: #792809;
   --color-neutral: #ffffff;
+  --color-black: #000000;
+  --color-info: #439ff5;
+  --color-info-darken: #0c3073;
   --color-success: #7fac38;
+  --color-success-darken: #325115;
   --color-warning: #f7d648;
+  --color-warning: #745f1c;
   --color-danger: #ec544d;
+  --color-danger-darken: #701b33;
 
   --shadow-elevation-1: 0px 1px 1px #ebebeb;
   --shadow-elevation-2: 0px 1px 8px rgba(0, 0, 0, 0.08);
