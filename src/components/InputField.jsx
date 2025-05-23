@@ -2,6 +2,7 @@ export default function InputField({ label, id, type = "text", ...rest }) {
 
   const components = {
     text: "input",
+    password: "input",
     textarea: "textarea",
   };
 
