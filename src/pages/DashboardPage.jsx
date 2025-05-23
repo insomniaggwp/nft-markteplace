@@ -3,18 +3,45 @@ import { useEffect, useState } from "react";
 import { fetchCampaigns, fetchDeleteCampaign } from "../services/campaignService";
 import CardContent from "../components/CardConten";
 import Button from "../components/Button";
+import SearchInput from "../components/SearchInput";
+import Dropdown from "../components/Dropdown";
 
 const DashboardPage = () => {
   const navigate = useNavigate();
   const [campaigns, setCampaigns] = useState([]);
+  const [filteredStatus, setFilteredStatus] = useState("");
+  const [searchCampaignName, setSearchCampaignName] = useState("")
+  
+  const statusOptions = [
+    {
+      id: '',
+      name: "All",
+      description: "status",
+    },
+    {
+      id: 'posted',
+      name: "posted",
+      description: "status",
+    },
+    {
+      id: 'scheduled',
+      name: "scheduled",
+      description: "status",
+    },
+    {
+      id: 'draft',
+      name: "draft",
+      description: "status",
+    }
+  ]
 
   useEffect(() => {
-    getCampaigns();
-  }, [])
+    getCampaigns({ filteredStatus, searchCampaignName });
+  }, [filteredStatus, searchCampaignName])
 
-  const getCampaigns = async () => {
+  const getCampaigns = async ({ filteredStatus, searchCampaignName }) => {
     try {
-      const res = await fetchCampaigns();
+      const res = await fetchCampaigns({ filteredStatus, searchCampaignName });
       setCampaigns(res);
     } catch (error) {
       alert(error.message);
@@ -37,12 +64,34 @@ const DashboardPage = () => {
     };
   }
 
+  const onSearch = (value) => {
+    setSearchCampaignName(value);
+  }
+
+  const onChangeFilterStatus = (e) => {
+    setFilteredStatus(e.target.value);
+  }
+
   return (
     <div className="p-6 px-16">
       <div className="w-64 mb-4">
         <Button variant="secondary" onClick={() => navigate('/content')}>
           Create Content
         </Button>
+      </div>
+
+      <div className="flex gap-4">
+        <div className="flex-3">
+          <SearchInput onSearch={onSearch} />
+        </div>
+        <div className="flex-1">
+          <Dropdown
+            selected={filteredStatus}
+            options={statusOptions}
+            onChangeSelected={onChangeFilterStatus}
+            required
+          />
+        </div>
       </div>
 
       <div className="flex flex-wrap gap-8">

@@ -1,7 +1,7 @@
 function Dropdown({ label, options, selected, onChangeSelected }) {
 
   return (
-    <div className="flex flex-col gap-2 max-w-sm">
+    <div className="flex flex-col gap-2">
       <label htmlFor="options" className="text-sm font-medium text-gray-700">
         {label}
       </label>

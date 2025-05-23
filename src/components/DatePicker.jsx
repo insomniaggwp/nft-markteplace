@@ -3,7 +3,7 @@ function DatePicker({ label, date, onChangeDate }) {
   const today = new Date().toISOString().split("T")[0];
 
   return (
-    <div className="flex flex-col gap-2 max-w-sm">
+    <div className="flex flex-col gap-2">
       <label htmlFor="schedule" className="text-sm font-medium text-gray-700">
         {label}
       </label>

@@ -3,7 +3,7 @@ import { showLoading, hideLoading } from "../utils/loadingService";
 
 const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
-export async function fetchCampaigns() {
+export async function fetchCampaigns({ filteredStatus, searchCampaignName }) {
   showLoading();
   try {
 
@@ -13,7 +13,12 @@ export async function fetchCampaigns() {
       throw new Error('Login Required')
     }
 
-    const response = await fetch(`${BASE_URL}/campaigns`);
+    let query = "";
+
+    if (filteredStatus) query += `?status=${filteredStatus}`;
+    if (searchCampaignName) query += `${query ? "&" : "?"}campaignName_like=${searchCampaignName}`;
+    
+    const response = await fetch(`${BASE_URL}/campaigns${query}`);
     if (!response.ok) throw new Error('Failed to fetch campaigns');
     const data = await response.json();
     return data;
