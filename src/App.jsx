@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ProtectedRoute from './routes/ProtectedRoute';
 import LoginPage from './pages/LoginPage';
 import DashboardPage from './pages/DashboardPage';
-import CreateContentPage from './pages/CreateContentPage';
+import ContentFormPage from './pages/ContentFormPage';
 import GlobalLoading from './components/GlobalLoading';
 
 function App() {
@@ -20,10 +20,18 @@ function App() {
           }
         />
         <Route
-          path="/createContent"
+          path="/content"
           element={
             <ProtectedRoute>
-              <CreateContentPage />
+              <ContentFormPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/content/:id"
+          element={
+            <ProtectedRoute>
+              <ContentFormPage />
             </ProtectedRoute>
           }
         />

@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { fetchCampaigns, fetchDeleteCampaign } from "../services/api";
+import { fetchCampaigns, fetchDeleteCampaign } from "../services/campaignService";
 import CardContent from "../components/CardConten";
 import Button from "../components/Button";
 
@@ -22,11 +22,11 @@ const DashboardPage = () => {
   }
 
   const onEditContent = (id) => {
-    console.log('edit', id)
+    navigate(`/content/${id}`)
   }
 
   const onDeleteContent = async (id) => {
-    if (window.confirm('Yakin ingin menghapus campaign ini?')) {
+    if (window.confirm('Are you sure ?')) {
       try {
         await fetchDeleteCampaign(id);
         alert('Delete Campaign Success');
@@ -38,9 +38,9 @@ const DashboardPage = () => {
   }
 
   return (
-    <div className="p-6">
+    <div className="p-6 px-16">
       <div className="w-64 mb-4">
-        <Button variant="secondary" onClick={() => navigate('/createContent')}>
+        <Button variant="secondary" onClick={() => navigate('/content')}>
           Create Content
         </Button>
       </div>
@@ -56,6 +56,7 @@ const DashboardPage = () => {
               campaignName={campaign.campaignName}
               caption={campaign.caption}
               status={campaign.status}
+              image={campaign.image}
               onEditContent={() => onEditContent(campaign.id)}
               onDeleteContent={() => onDeleteContent(campaign.id)}
             />
