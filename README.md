@@ -57,7 +57,7 @@ npm install
 ### 3. Setup Environment Variables
 
 ```bash
-VITE_API_BASE_URL=http://localhost:8000
+VITE_API_BASE_URL=/api
 VITE_OPENAI_API_URL=https://api.openai.com/v1/chat/completions
 VITE_GPT_KEY=your-openai-api-key
 ```
