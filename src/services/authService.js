@@ -52,7 +52,7 @@ export async function isLoggedIn() {
 
   try {
     // Fetch user by username from backend
-    const res = await fetch(`/api/users?username=${username}`);
+    const res = await fetch(`${BASE_URL}/users?username=${username}`);
     if (!res.ok) return false;
 
     const users = await res.json();
