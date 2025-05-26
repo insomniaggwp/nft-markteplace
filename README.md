@@ -72,7 +72,7 @@ npm run dev
 
 ```bash
 npm run reset-mock
-json-server --watch db/campaigns.json --port 8000
+json-server npm run mock-api
 ```
 
 ## 🚀 Features

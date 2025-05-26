@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { fetchCampaigns, fetchDeleteCampaign } from "../services/campaignService";
+import { fetchGetCampaigns, fetchDeleteCampaign } from "../services/campaignService";
 import CardContent from "../components/CardConten";
 import Button from "../components/Button";
 import SearchInput from "../components/SearchInput";
@@ -41,7 +41,7 @@ const DashboardPage = () => {
 
   const getCampaigns = async ({ filteredStatus, searchCampaignName }) => {
     try {
-      const res = await fetchCampaigns({ filteredStatus, searchCampaignName });
+      const res = await fetchGetCampaigns({ filteredStatus, searchCampaignName });
       setCampaigns(res);
     } catch (error) {
       alert(error.message);

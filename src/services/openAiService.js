@@ -1,4 +1,6 @@
 import { showLoading, hideLoading } from "../utils/loadingService";
+import { isLoggedIn } from "./authService";
+import { AuthenticationError } from './errors.js';
 
 const BASE_URL = import.meta.env.VITE_OPENAI_API_URL;
 const GPT_KEY = import.meta.env.VITE_GPT_KEY;
@@ -40,7 +42,16 @@ export async function generateContent(campaign) {
     `;
 
   showLoading();
+
+
   try {
+    
+    const loggedIn = await isLoggedIn();
+
+    if (!loggedIn) {
+      throw new AuthenticationError();
+    }
+
     const [responseCaption, responseImage] = await Promise.all([
       generateCaption(prompt),
       generateImage(imagePrompt)

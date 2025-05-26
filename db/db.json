@@ -72,5 +72,13 @@
       "name": "Humorous",
       "description": "Funny and entertaining"
     }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "username": "administrator1x",
+      "password": "1xpassword",
+      "token": "mysecrettoken"
+    }
   ]
 }
