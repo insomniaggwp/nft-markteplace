@@ -4,7 +4,7 @@ import Button from '../components/Button';
 import { login } from '../services/authService';
 import NFTCard from '@/components/NFTCard';
 import Section from '@/templates/Section';
-import TRENDINGS from '@/constants/trending';
+import { TRENDINGS, TOP_CREATORS } from '@/constants/homepage';
 
 const GetStarted = ({ className }: { className?: string }) => {
   return (
@@ -90,7 +90,7 @@ const MarketplacePage = () => {
                 {trending.nfts.map((nft) => (
                   <img src={nft.image} className="w-full" />
                 ))}
-                <div className="bg-primary-purple font-bold w-full h-full rounded-xl text-white flex items-center justify-center h-20">
+                <div className="bg-primary-purple font-bold w-full h-full rounded-3xl text-white flex items-center justify-center h-20">
                   1025+
                 </div>
               </div>
@@ -102,6 +102,42 @@ const MarketplacePage = () => {
                   <img src={trending.artist.avatar} width={24} height={24} />
                   <p>{trending.artist.name}</p>
                 </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      {/* top creators */}
+      <Section className="flex-col">
+        <div className="header w-full flex justify-between">
+          <div>
+            <h2 className="text-headline-size">Top Creators</h2>
+            <p className="text-subheadline-size">
+              Checkout Top Rated Creators on the NFT Marketplace
+            </p>
+          </div>
+          <div>
+            <Button variant="secondary">View Rankings</Button>
+          </div>
+        </div>
+        <div className="creators-wrapper grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {TOP_CREATORS.map((creator) => (
+            <div
+              key={creator.id}
+              className="relative bg-primary-lighten flex lg:flex-col text-center items-center p-6 gap-5 rounded-xl lg:min-w-[240px] lg:min-h-[240px]"
+            >
+              <p className="absolute left-3 top-3 flex items-center justify-center bg-primary-darken rounded-2xl w-8 h-8">
+                {creator.id}
+              </p>
+              <img src={creator.avatar} width={120} height={120} />
+              <div>
+                <p className="text-subheadline-size font-semibold">
+                  {creator.name}
+                </p>
+                <p className="text-normal-size">
+                  Total Sales: <span className="font-semibold">34.53 ETH</span>
+                </p>
               </div>
             </div>
           ))}
