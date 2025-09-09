@@ -1,5 +1,5 @@
-import { showLoading, hideLoading } from "../utils/loadingService";
-import { isLoggedIn } from "./authService";
+import { showLoading, hideLoading } from '../utils/loadingService';
+import { isLoggedIn } from './authService';
 import { AuthenticationError } from './errors.js';
 
 const BASE_URL = import.meta.env.VITE_OPENAI_API_URL;
@@ -26,7 +26,7 @@ export async function generateContent(campaign) {
       Output only caption in plain text, no extra explanation.
     `;
 
-    const imagePrompt = `
+  const imagePrompt = `
       A high-quality, visually engaging Instagram-style image for a brand campaign.
 
       Brand: ${campaign.brandName}
@@ -43,9 +43,7 @@ export async function generateContent(campaign) {
 
   showLoading();
 
-
   try {
-    
     const loggedIn = await isLoggedIn();
 
     if (!loggedIn) {
@@ -54,17 +52,18 @@ export async function generateContent(campaign) {
 
     const [responseCaption, responseImage] = await Promise.all([
       generateCaption(prompt),
-      generateImage(imagePrompt)
+      generateImage(imagePrompt),
     ]);
 
     return {
-      caption: responseCaption?.choices[0]?.message?.content || "No Caption Availble",
-      image: responseImage?.data?.[0] || "https://example.com/default-image.jpg"
+      caption:
+        responseCaption?.choices[0]?.message?.content || 'No Caption Availble',
+      image:
+        responseImage?.data?.[0] || 'https://example.com/default-image.jpg',
     };
-
   } catch (error) {
-    console.error("Error when generate content", error);
-    throw error; 
+    console.error('Error when generate content', error);
+    throw error;
   } finally {
     hideLoading();
   }
@@ -73,23 +72,20 @@ export async function generateContent(campaign) {
 export async function generateCaption(prompt) {
   try {
     const response = await fetch(`${BASE_URL}/chat/completions`, {
-      method: "POST",
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
         Authorization: `Bearer ${GPT_KEY}`,
       },
       body: JSON.stringify({
-        model: "gpt-4o",
-        messages: [
-          { role: "system", content: prompt }
-        ],
+        model: 'gpt-4o',
+        messages: [{ role: 'system', content: prompt }],
       }),
     });
 
-    return await response.json() 
-
+    return await response.json();
   } catch (error) {
-    console.error("OpenAI API error:", error);
+    console.error('OpenAI API error:', error);
     throw error;
   }
 }
@@ -97,24 +93,23 @@ export async function generateCaption(prompt) {
 export async function generateImage(prompt) {
   try {
     const response = await fetch(`${BASE_URL}/images/generations`, {
-      method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${GPT_KEY}`,
-        },
-        body: JSON.stringify({
-          model: "dall-e-3",
-          prompt,
-          size: "1024x1024",
-          quality: "standard",
-          n: 1
-        }),
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${GPT_KEY}`,
+      },
+      body: JSON.stringify({
+        model: 'dall-e-3',
+        prompt,
+        size: '1024x1024',
+        quality: 'standard',
+        n: 1,
+      }),
     });
 
-    return await response.json() 
-
+    return await response.json();
   } catch (error) {
-    console.error("OpenAI API error:", error);
+    console.error('OpenAI API error:', error);
     throw error;
   }
 }

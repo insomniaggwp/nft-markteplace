@@ -1,30 +1,33 @@
-import { isLoggedIn } from "./authService";
-import { showLoading, hideLoading } from "../utils/loadingService";
+import { isLoggedIn } from './authService';
+import { showLoading, hideLoading } from '../utils/loadingService';
 import { AuthenticationError } from './errors.js';
 
 const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
-export async function fetchGetCampaigns({ filteredStatus, searchCampaignName }) {
+export async function fetchGetCampaigns({
+  filteredStatus,
+  searchCampaignName,
+}) {
   showLoading();
   try {
-
     const loggedIn = await isLoggedIn();
 
     if (!loggedIn) {
       throw new AuthenticationError();
     }
 
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    await new Promise((resolve) => setTimeout(resolve, 1000));
 
-    let query = "";
+    let query = '';
 
     if (filteredStatus) query += `?status=${filteredStatus}`;
-    if (searchCampaignName) query += `${query ? "&" : "?"}campaignName_like=${searchCampaignName}`;
-    
+    if (searchCampaignName)
+      query += `${query ? '&' : '?'}campaignName_like=${searchCampaignName}`;
+
     const response = await fetch(`${BASE_URL}/campaigns${query}`);
-    
+
     if (!response.ok) throw new Error('Failed to fetch campaigns');
-    
+
     const data = await response.json();
 
     return data;
@@ -45,14 +48,13 @@ export async function fetchTones() {
 export async function fetchDeleteCampaign(id) {
   showLoading();
   try {
-
     const loggedIn = await isLoggedIn();
 
     if (!loggedIn) {
       throw new AuthenticationError();
     }
 
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    await new Promise((resolve) => setTimeout(resolve, 1000));
 
     const response = await fetch(`${BASE_URL}/campaigns/${id}`, {
       method: 'DELETE',
@@ -71,23 +73,22 @@ export async function fetchDeleteCampaign(id) {
   } finally {
     hideLoading();
   }
-};
+}
 
 export async function fetchPostCampaign(body) {
   showLoading();
   try {
-
     const loggedIn = await isLoggedIn();
 
     if (!loggedIn) {
       throw new AuthenticationError();
     }
 
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    await new Promise((resolve) => setTimeout(resolve, 1000));
 
     const response = await fetch(`${BASE_URL}/campaigns`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(body),
     });
 
@@ -96,7 +97,6 @@ export async function fetchPostCampaign(body) {
     }
 
     return response;
-
   } catch (error) {
     return { error: error.message || 'Unknown error' };
   } finally {
@@ -107,18 +107,17 @@ export async function fetchPostCampaign(body) {
 export async function fetchCampaignDetail(id) {
   showLoading();
   try {
-
     const loggedIn = await isLoggedIn();
 
     if (!loggedIn) {
       throw new AuthenticationError();
     }
 
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    await new Promise((resolve) => setTimeout(resolve, 1000));
 
     const response = await fetch(`${BASE_URL}/campaigns/${id}`, {
-      method: "GET",
-      headers: { "Content-Type": "application/json" },
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' },
     });
 
     if (!response.ok) {
@@ -126,7 +125,6 @@ export async function fetchCampaignDetail(id) {
     }
 
     return response.json();
-
   } catch (error) {
     return { error: error.message || 'Unknown error' };
   } finally {
@@ -137,18 +135,17 @@ export async function fetchCampaignDetail(id) {
 export async function fetchPutCampaign({ id, body }) {
   showLoading();
   try {
-
     const loggedIn = await isLoggedIn();
 
     if (!loggedIn) {
       throw new AuthenticationError();
     }
 
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    await new Promise((resolve) => setTimeout(resolve, 1000));
 
     const response = await fetch(`${BASE_URL}/campaigns/${id}`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(body),
     });
 
@@ -157,7 +154,6 @@ export async function fetchPutCampaign({ id, body }) {
     }
 
     return response;
-
   } catch (error) {
     return { error: error.message || 'Unknown error' };
   } finally {

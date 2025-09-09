@@ -1,6 +1,5 @@
-
 function DatePicker({ label, date, onChangeDate }) {
-  const today = new Date().toISOString().split("T")[0];
+  const today = new Date().toISOString().split('T')[0];
 
   return (
     <div className="flex flex-col gap-2">

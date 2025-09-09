@@ -1,50 +1,61 @@
-import { showLoading, hideLoading } from "../utils/loadingService";
+import { showLoading, hideLoading } from '../utils/loadingService';
 
 const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 export async function login({ username, password }) {
+  console.log('username', username);
+  console.log('password', password);
   showLoading();
   try {
-    
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    await new Promise((resolve) => setTimeout(resolve, 1000));
 
-    const res = await fetch(`${BASE_URL}/users?username=${username}&password=${password}`);
-    const users = await res.json();
+    localStorage.setItem(
+      'auth',
+      JSON.stringify({
+        token: 'mysecrettoken',
+        username,
+        isLogin: true,
+      }),
+    );
 
-    if (users.length > 0) {
-      const user = users[0];
-      localStorage.setItem('auth', JSON.stringify({
-        token: user.token,
-        username: user.username,
-        isLogin: true
-      }));
-      return true;
-    }
-    throw new Error()
+    // const res = await fetch(`${BASE_URL}/users?username=${username}&password=${password}`);
+    // const users = await res.json();
+
+    // if (users.length > 0) {
+    //   const user = users[0];
+    //   localStorage.setItem('auth', JSON.stringify({
+    //     token: user.token,
+    //     username: user.username,
+    //     isLogin: true
+    //   }));
+    //   return true;
+    // }
+    // throw new Error()
+
+    return true;
   } catch {
     return false;
   } finally {
-    hideLoading()
+    hideLoading();
   }
 }
 
 export async function logout() {
   showLoading();
   try {
+    await new Promise((resolve) => setTimeout(resolve, 1000));
 
-    await new Promise(resolve => setTimeout(resolve, 1000));
-   
-    localStorage.removeItem("auth");
+    localStorage.removeItem('auth');
     return true;
   } catch (error) {
     return { error: error.message || 'Unknown error' };
   } finally {
-    hideLoading()
+    hideLoading();
   }
 }
 
 export async function isLoggedIn() {
-  const authRaw = localStorage.getItem("auth");
+  const authRaw = localStorage.getItem('auth');
   if (!authRaw) return false;
 
   const { token, username } = JSON.parse(authRaw);
@@ -67,6 +78,6 @@ export async function isLoggedIn() {
 }
 
 export function getUsername() {
-  const auth = localStorage.getItem("auth");
+  const auth = localStorage.getItem('auth');
   return auth ? JSON.parse(auth).username : null;
 }

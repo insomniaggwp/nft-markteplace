@@ -1,30 +1,30 @@
-import { useState, useEffect } from "react";
-import useInput from "../hooks/useInput";
-import DatePicker from "../components/DatePicker";
-import InputField from "../components/InputField";
-import Dropdown from "../components/Dropdown";
-import ImageUploadForm from "../components/ImageUploadForm";
-import Button from "../components/Button";
-import ContentEditor from "../components/ContentEditor";
+import { useState, useEffect } from 'react';
+import useInput from '../hooks/useInput';
+import DatePicker from '../components/DatePicker';
+import InputField from '../components/InputField';
+import Dropdown from '../components/Dropdown';
+import ImageUploadForm from '../components/ImageUploadForm';
+import Button from '../components/Button';
+import ContentEditor from '../components/ContentEditor';
 import {
   fetchTones,
   fetchPostCampaign,
   fetchCampaignDetail,
-  fetchPutCampaign
-} from "../services/campaignService";
-import { generateContent } from "../services/openAiService";
-import { useParams } from "react-router-dom";
+  fetchPutCampaign,
+} from '../services/campaignService';
+import { generateContent } from '../services/openAiService';
+import { useParams } from 'react-router-dom';
 
 const ContentFormPage = () => {
-  const [brandName, onBrandChange, setBrand] = useInput("");
-  const [campaignName, onCampaignName, setCampaignName] = useInput("");
-  const [campaignDesc, onCampaignDesc, setCampaignDesc] = useInput("");
-  const [targetAudience, onChangeTargetAudience, setTarget] = useInput("");
-  const [postTopic, onChangePostTopic, setTopic] = useInput("");
+  const [brandName, onBrandChange, setBrand] = useInput('');
+  const [campaignName, onCampaignName, setCampaignName] = useInput('');
+  const [campaignDesc, onCampaignDesc, setCampaignDesc] = useInput('');
+  const [targetAudience, onChangeTargetAudience, setTarget] = useInput('');
+  const [postTopic, onChangePostTopic, setTopic] = useInput('');
 
-  const [date, setDate] = useState("");
-  const [postToneOptions, setPostToneOptions] = useState([])
-  const [postTone, setPostTone] = useState("");
+  const [date, setDate] = useState('');
+  const [postToneOptions, setPostToneOptions] = useState([]);
+  const [postTone, setPostTone] = useState('');
   const [companyLogo, setCompanyLogo] = useState(null);
   const [previewLogo, setPreviewLogo] = useState(null);
   const [generateCaption, setGenerateCaption] = useState(null);
@@ -40,29 +40,29 @@ const ContentFormPage = () => {
     if (id) {
       getCampaignDetail();
     }
-  }, [id])
+  }, [id]);
 
   const getCampaignDetail = async () => {
     try {
       const campaign = await fetchCampaignDetail(id);
       if (campaign) {
-        setBrand(campaign.brand)
-        setCampaignName(campaign.campaignName)
-        setGenerateCaption(campaign.caption)
-        setCampaignDesc(campaign.description)
-        setGenerateImage(campaign.image)
-        setCompanyLogo(campaign.logo)
-        setDate(campaign.schedule)
-        setTarget(campaign.target)
-        setPostTone(campaign.tone)
-        setTopic(campaign.topic)
+        setBrand(campaign.brand);
+        setCampaignName(campaign.campaignName);
+        setGenerateCaption(campaign.caption);
+        setCampaignDesc(campaign.description);
+        setGenerateImage(campaign.image);
+        setCompanyLogo(campaign.logo);
+        setDate(campaign.schedule);
+        setTarget(campaign.target);
+        setPostTone(campaign.tone);
+        setTopic(campaign.topic);
       } else {
-        throw new Error('Failed get Campaign Detail')
+        throw new Error('Failed get Campaign Detail');
       }
     } catch (error) {
-      alert(error.message)
+      alert(error.message);
     }
-  }
+  };
 
   const getTones = async () => {
     try {
@@ -71,23 +71,23 @@ const ContentFormPage = () => {
     } catch (error) {
       alert(error.message);
     }
-  }
+  };
 
   const onChangeDate = (e) => {
     setDate(e.target.value);
   };
 
   const handleGenerateContent = async (e) => {
-    e.preventDefault()
-    
+    e.preventDefault();
+
     const campaign = {
       brandName,
       campaignName,
       campaignDesc,
       targetAudience,
       postTopic,
-      postTone
-    }
+      postTone,
+    };
 
     try {
       const response = await generateContent(campaign);
@@ -96,17 +96,17 @@ const ContentFormPage = () => {
         setGenerateImage(response.image.url);
       }
     } catch (error) {
-      alert(error.message)
+      alert(error.message);
     }
-  }
+  };
 
   const onChangePostTone = (e) => {
     setPostTone(e.target.value);
-  }
+  };
 
   const handleChangeLogo = (e) => {
     const file = e.target.files[0];
-    if (file && file.type.startsWith("image/")) {
+    if (file && file.type.startsWith('image/')) {
       setCompanyLogo(file);
       setPreviewLogo(URL.createObjectURL(file));
     } else {
@@ -127,7 +127,7 @@ const ContentFormPage = () => {
       logo: `/assets/logos/${companyLogo.name}`,
       caption: generateCaption,
       image: generateImage,
-      status: "draft",
+      status: 'draft',
       postedAt: null,
     };
 
@@ -135,22 +135,28 @@ const ContentFormPage = () => {
       const response = id
         ? await fetchPutCampaign({ id, body })
         : await fetchPostCampaign(body);
-        
-      console.log('response', response)
-    } catch (error) {
-      alert(error.message)
-    }
 
-  }
+      console.log('response', response);
+    } catch (error) {
+      alert(error.message);
+    }
+  };
 
   return (
     <div className="p-6 flex gap-10">
       {/* form create content */}
       <div className="flex-1 w-full">
-        <h2 className="text-subheadline-size font-bold text-primary mb-4">Create Content Form</h2> 
-        <form onSubmit={handleGenerateContent} className="bg-neutral p-6 rounded shadow-elevation-3 h-full">
-
-          <div id="input-form-container" className="flex flex-col justify-between h-full">
+        <h2 className="text-subheadline-size font-bold text-primary mb-4">
+          Create Content Form
+        </h2>
+        <form
+          onSubmit={handleGenerateContent}
+          className="bg-neutral p-6 rounded shadow-elevation-3 h-full"
+        >
+          <div
+            id="input-form-container"
+            className="flex flex-col justify-between h-full"
+          >
             <div>
               <InputField
                 label="Brand name"
@@ -180,7 +186,7 @@ const ContentFormPage = () => {
                 required
               />
 
-              <DatePicker 
+              <DatePicker
                 label="Posting schedule"
                 date={date}
                 onChangeDate={onChangeDate}
@@ -222,16 +228,19 @@ const ContentFormPage = () => {
             </div>
 
             <div>
-              <Button type="submit" variant="secondary" >Generate Content</Button>
+              <Button type="submit" variant="secondary">
+                Generate Content
+              </Button>
             </div>
           </div>
-
         </form>
       </div>
 
       {/* preview content */}
       <div className="flex-1 w-full">
-        <h2 className="text-subheadline-size font-bold text-primary mb-4">Preview Content</h2>
+        <h2 className="text-subheadline-size font-bold text-primary mb-4">
+          Preview Content
+        </h2>
 
         <div className="flex flex-col justify-between h-full p-6">
           <ContentEditor

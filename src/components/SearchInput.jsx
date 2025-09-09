@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useState } from 'react';
 import Button from './Button';
 
-export default function SearchInput({ onSearch, placeholder = "Search..." }) {
-  const [searchTerm, setSearchTerm] = useState("");
+export default function SearchInput({ onSearch, placeholder = 'Search...' }) {
+  const [searchTerm, setSearchTerm] = useState('');
 
   const handleSubmit = () => {
     onSearch(searchTerm);
@@ -18,10 +18,7 @@ export default function SearchInput({ onSearch, placeholder = "Search..." }) {
         className="flex-2 w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
       />
       <div className="flex-1">
-        <Button
-          variant="outline"
-          onClick={handleSubmit}
-        >
+        <Button variant="outline" onClick={handleSubmit}>
           Search
         </Button>
       </div>

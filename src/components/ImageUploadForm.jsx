@@ -1,9 +1,11 @@
 function ImageUploadForm({ label, onChange, preview }) {
-
   return (
     <div className="flex flex-col gap-4 max-w-sm">
-      <label htmlFor="imageUpload" className="text-sm font-medium text-gray-700">
-        { label }
+      <label
+        htmlFor="imageUpload"
+        className="text-sm font-medium text-gray-700"
+      >
+        {label}
       </label>
       <input
         type="file"

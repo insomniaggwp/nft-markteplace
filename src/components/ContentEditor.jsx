@@ -7,8 +7,11 @@ export default function ContentEditor(campaign) {
     logo,
   } = campaign;
 
-   return (
-    <div id={`card-content-${id}`} className="relative rounded-xl border border-gray-200 bg-white w-full overflow-hidden shadow-elevation-2 cursor-pointer hover:shadow-primary">
+  return (
+    <div
+      id={`card-content-${id}`}
+      className="relative rounded-xl border border-gray-200 bg-white w-full overflow-hidden shadow-elevation-2 cursor-pointer hover:shadow-primary"
+    >
       {/* Header */}
       <div className="flex items-center justify-between px-4 py-2">
         <div className="flex items-center gap-2">
@@ -31,8 +34,7 @@ export default function ContentEditor(campaign) {
       {/* Caption and status */}
       <div className="px-4 py-3 flex flex-col gap-2">
         <p className="text-caption-size text-caption-line">
-          <span className="font-semibold">{brand}</span>{' '}
-          {caption}
+          <span className="font-semibold">{brand}</span> {caption}
         </p>
       </div>
     </div>

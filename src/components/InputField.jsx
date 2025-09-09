@@ -1,17 +1,18 @@
-export default function InputField({ label, id, type = "text", ...rest }) {
-
+export default function InputField({ label, id, type = 'text', ...rest }) {
   const components = {
-    text: "input",
-    password: "input",
-    textarea: "textarea",
+    text: 'input',
+    password: 'input',
+    textarea: 'textarea',
   };
 
   const Component = components[type];
 
-
   return (
     <div className="mb-4">
-      <label htmlFor={id} className="block text-subheadline-size text-primary mb-1">
+      <label
+        htmlFor={id}
+        className="block text-subheadline-size text-primary mb-1"
+      >
         {label}
       </label>
       <Component
