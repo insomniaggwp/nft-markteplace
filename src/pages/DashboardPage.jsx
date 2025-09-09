@@ -38,9 +38,9 @@ const DashboardPage = () => {
     },
   ];
 
-  useEffect(() => {
-    getCampaigns({ filteredStatus, searchCampaignName });
-  }, [filteredStatus, searchCampaignName]);
+  // useEffect(() => {
+  //   getCampaigns({ filteredStatus, searchCampaignName });
+  // }, [filteredStatus, searchCampaignName]);
 
   const getCampaigns = async ({ filteredStatus, searchCampaignName }) => {
     try {
