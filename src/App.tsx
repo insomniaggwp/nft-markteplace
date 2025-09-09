@@ -1,10 +1,9 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-// import ProtectedRoute from './routes/ProtectedRoute';
 import CreateAccountPage from './pages/CreateAccountPage';
 import DashboardPage from './pages/DashboardPage';
-// import ContentFormPage from './pages/ContentFormPage';
 import GlobalLoading from './components/GlobalLoading';
 import BaseTemplate from './templates/BaseTemplate';
+import MarketplacePage from './pages/MarketplacePage';
 
 function App() {
   return (
@@ -24,6 +23,14 @@ function App() {
           element={
             <BaseTemplate>
               <CreateAccountPage />
+            </BaseTemplate>
+          }
+        />
+        <Route
+          path="/marketplace"
+          element={
+            <BaseTemplate>
+              <MarketplacePage />
             </BaseTemplate>
           }
         />

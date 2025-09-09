@@ -29,10 +29,12 @@
   --shadow-elevation-2: 0px 1px 8px rgba(0, 0, 0, 0.08);
   --shadow-elevation-3: 0px 2px 24px rgba(0, 0, 0, 0.08);
 
-  --text-display-size: 3.438rem;
+  --text-display-size: 4rem;
   --text-display-line: 5.156rem;
   --text-headline-size: 2.188rem;
   --text-headline-line: 3.281rem;
+  --text-title-size: 1.7rem;
+  --text-subtitle-size: 1.5rem;
   --text-subheadline-size: 1.375rem;
   --text-subheadline-line: 1.375rem;
   --text-normal-size: 1rem;

@@ -23,7 +23,7 @@ const CreateAccountPage = () => {
   };
 
   return (
-    <div className="w-full md:flex items-center justify-center bg-primary-darken text-neutral">
+    <div className="md:flex items-center justify-center">
       <div className="flex-1 w-full h-full">
         <img
           src="/Image Placeholder.svg"

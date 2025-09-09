@@ -20,7 +20,10 @@ const BaseTemplate = ({ children }: BaseTemplateProps) => {
       <header className="bg-primary text-neutral py-[20px] px-[50px]">
         <nav className="flex justify-between items-center gap-4">
           {/* Logo / Judul */}
-          <button className="cursor-pointer">
+          <button
+            className="hover:cursor-pointer"
+            onClick={() => navigate(`/marketplace`)}
+          >
             <img src="/icon_outline/Logo.svg" alt="Logo" />
           </button>
 
@@ -41,7 +44,9 @@ const BaseTemplate = ({ children }: BaseTemplateProps) => {
                 <img
                   src="/icon_outline/user.svg"
                   alt="User"
-                  className="w-6 h-6 text-purple-500 fill-current"
+                  className="text-purple-500 fill-current mr-2"
+                  width={20}
+                  height={20}
                 />
                 <span className="whitespace-nowrap overflow-hidden">
                   Sign Up
@@ -58,7 +63,10 @@ const BaseTemplate = ({ children }: BaseTemplateProps) => {
       </header>
 
       {/* content */}
-      <div id="content" className="max-w-screen-xl mx-auto">
+      <div
+        id="content"
+        className="max-w-screen-xl mx-auto bg-primary-darken text-neutral"
+      >
         {children}
       </div>
 
@@ -113,7 +121,7 @@ const BaseTemplate = ({ children }: BaseTemplateProps) => {
                 placeholder="Enter your email here"
                 className="h-[60px] w-full rounded rounded-3xl bg-white text-primary-darken px-6"
               />
-              <Button variant="secondray" className="relative -ml-10 w-[180px]">
+              <Button variant="secondary" className="relative -ml-10 w-[180px]">
                 Subscribe
               </Button>
             </div>
