@@ -3,6 +3,8 @@ import InputField from '../components/InputField';
 import Button from '../components/Button';
 import { login } from '../services/authService';
 import NFTCard from '@/components/NFTCard';
+import Section from '@/templates/Section';
+import TRENDINGS from '@/constants/trending';
 
 const GetStarted = ({ className }: { className?: string }) => {
   return (
@@ -40,12 +42,12 @@ const MarketplacePage = () => {
   return (
     <div className="w-full md:flex items-center justify-center bg-primary-darken text-neutral flex flex-col">
       {/* discover section */}
-      <div className="flex-1 md:flex gap-8 md:px-[115px] md:py-[80px] p-8">
+      <Section>
         <div className="flex-1 flex flex-col">
           <div className="header">
-            <h1 className="text-display-size font-semibold leading-[70px] mb-5">
+            <h2 className="text-display-size font-semibold leading-[70px] mb-5">
               Discover digital art & Collect NFTs
-            </h1>
+            </h2>
             <h3 className="text-subheadline-size">
               NFT marketplace UI created with Anima for Figma. Collect, buy and
               sell art from more than 20k NFT artists.
@@ -62,9 +64,49 @@ const MarketplacePage = () => {
           />
         </div>
         <GetStarted className="md:hidden" />
-      </div>
+      </Section>
 
       {/* trending section */}
+      <Section className="flex-col">
+        <div>
+          <h2 className="text-headline-size">Trending Collection</h2>
+          <p className="text-subheadline-size">
+            Checkout our weekly updated trending collection.
+          </p>
+        </div>
+
+        <div id="imageSection" className="flex flex-wrap gap-8">
+          {TRENDINGS.map((trending, index) => (
+            <div
+              key={trending.id}
+              className={`nfts-wrapper flex-1 flex flex-col gap-2
+                ${index === 2 ? 'hidden lg:flex' : ''}
+                ${index === 1 ? 'hidden md:flex' : ''} `}
+            >
+              <div className="preview">
+                <img src={trending.preview} className="w-full" />
+              </div>
+              <div className="content flex gap-2">
+                {trending.nfts.map((nft) => (
+                  <img src={nft.image} className="w-full" />
+                ))}
+                <div className="bg-primary-purple font-bold w-full h-full rounded-xl text-white flex items-center justify-center h-20">
+                  1025+
+                </div>
+              </div>
+              <div className="footer">
+                <p className="text-subheadline-size font-semibold">
+                  {trending.category}
+                </p>
+                <div className="flex gap-2 mt-2">
+                  <img src={trending.artist.avatar} width={24} height={24} />
+                  <p>{trending.artist.name}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </Section>
     </div>
   );
 };

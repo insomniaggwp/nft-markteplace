@@ -19,7 +19,7 @@ export default function Button({
   className = '',
 }: ButtonProp) {
   const baseStyle =
-    'px-4 py-2 bg-primary-purple hover:bg-primary rounded rounded-3xl text-normal-size hover:cursor-pointer transition border border-primary-purple flex items-center';
+    'px-4 py-2 bg-primary-purple hover:bg-primary rounded rounded-3xl text-normal-size hover:cursor-pointer transition border border-primary-purple flex justify-center items-center';
 
   const variantStyle = {
     primary: ' text-neutral h-[72px]',

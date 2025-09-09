@@ -1,4 +1,17 @@
-const artists = [
+export interface NFT {
+  id: number;
+  title?: string;
+  image: string;
+}
+
+export interface Artist {
+  id: number;
+  name: string;
+  avatar?: string;
+  nfts?: NFT[];
+}
+
+const ARTISTS: Artist[] = [
   {
     id: 1,
     name: 'Animakid',
@@ -13,5 +26,5 @@ const artists = [
 ]
 
 export default {
-  artists
+  ARTISTS
 }
