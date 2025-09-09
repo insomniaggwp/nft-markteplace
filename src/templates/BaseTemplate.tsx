@@ -2,21 +2,22 @@ import { ReactNode } from 'react';
 import Button from '@/components/Button';
 import NAVIGATION from '@/constants/navigation';
 import SOCIAL_MEDIA from '@/constants/social_media';
-// import InputField from '@/components/InputField';
+import { useNavigate } from 'react-router-dom';
 
 interface BaseTemplateProps {
   children: ReactNode;
 }
 
 const BaseTemplate = ({ children }: BaseTemplateProps) => {
+  const navigate = useNavigate();
   const onSignUp = () => {
-    console.log('onSignUp');
+    navigate(`/create-account`);
   };
 
   return (
     <>
       {/* header */}
-      <header className="bg-primary text-neutral py-[20px] px-[50px] mb-4">
+      <header className="bg-primary text-neutral py-[20px] px-[50px]">
         <nav className="flex justify-between items-center gap-4">
           {/* Logo / Judul */}
           <button className="cursor-pointer">
@@ -57,7 +58,7 @@ const BaseTemplate = ({ children }: BaseTemplateProps) => {
       </header>
 
       {/* content */}
-      <div id="content" className="max-w-screen-xl mx-auto px-4">
+      <div id="content" className="max-w-screen-xl mx-auto">
         {children}
       </div>
 

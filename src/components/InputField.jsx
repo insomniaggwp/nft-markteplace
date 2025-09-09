@@ -3,6 +3,7 @@ export default function InputField({ label = '', id, type = 'text', ...rest }) {
     text: 'input',
     password: 'input',
     textarea: 'textarea',
+    email: 'input'
   };
 
   const Component = components[type];
@@ -19,7 +20,7 @@ export default function InputField({ label = '', id, type = 'text', ...rest }) {
         type={type}
         id={id}
         {...rest}
-        className="w-full px-4 py-2 border border-primary rounded-lg"
+        className="w-full px-4 py-2 border border-primary rounded-lg bg-neutral text-primary text-normal-size"
       />
     </div>
   );

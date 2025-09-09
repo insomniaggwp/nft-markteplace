@@ -1,38 +1,30 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import ProtectedRoute from './routes/ProtectedRoute';
-import LoginPage from './pages/LoginPage';
+// import ProtectedRoute from './routes/ProtectedRoute';
+import CreateAccountPage from './pages/CreateAccountPage';
 import DashboardPage from './pages/DashboardPage';
-import ContentFormPage from './pages/ContentFormPage';
+// import ContentFormPage from './pages/ContentFormPage';
 import GlobalLoading from './components/GlobalLoading';
+import BaseTemplate from './templates/BaseTemplate';
 
 function App() {
   return (
     <BrowserRouter>
       <GlobalLoading />
       <Routes>
-        <Route path="/" element={<LoginPage />} />
         <Route
-          path="/dashboard"
+          path="/"
           element={
-            <ProtectedRoute>
+            <BaseTemplate>
               <DashboardPage />
-            </ProtectedRoute>
+            </BaseTemplate>
           }
         />
         <Route
-          path="/content"
+          path="/create-account"
           element={
-            <ProtectedRoute>
-              <ContentFormPage />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/content/:id"
-          element={
-            <ProtectedRoute>
-              <ContentFormPage />
-            </ProtectedRoute>
+            <BaseTemplate>
+              <CreateAccountPage />
+            </BaseTemplate>
           }
         />
       </Routes>
