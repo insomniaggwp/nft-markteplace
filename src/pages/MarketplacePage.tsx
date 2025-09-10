@@ -4,6 +4,7 @@ import Section from '@/templates/Section';
 import { useState } from 'react';
 import { NFTS } from '@/constants/nft';
 import NFTCard from '@/components/NFTCard';
+import { useNavigate } from 'react-router-dom';
 
 interface Tab {
   label: string;
@@ -19,6 +20,8 @@ const tabs: Tab[] = [
 const MarketplacePage = () => {
   const [searchNft, onSearchNft] = useInput('');
   const [activeTab, setActiveTab] = useState('nfts');
+
+  const navigate = useNavigate();
 
   return (
     <div className="w-full md:flex items-center justify-center bg-primary-darken text-neutral flex flex-col">
@@ -80,6 +83,7 @@ const MarketplacePage = () => {
               artist={nft.artist?.name}
               className="!bg-primary-darken"
               withFooter
+              onClick={() => navigate('/nft')}
             />
           ))}
         </div>

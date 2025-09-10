@@ -5,6 +5,7 @@ interface NFTCardProps {
   artist?: string;
   withFooter?: boolean;
   className?: string;
+  onClick?: () => void;
 }
 
 export default function NFTCard({
@@ -14,10 +15,11 @@ export default function NFTCard({
   artist,
   withFooter = false,
   className,
+  onClick,
 }: NFTCardProps) {
   return (
     <div className="card-nft flex flex-col">
-      <img src={image} className="flex-[1.7] w-[100%]" />
+      <img src={image} className="flex-[1.7] w-[100%]" onClick={onClick} />
       <div
         className={`flex-[0.3] p-5 bg-primary-lighten rounded rounded-b-3xl ${className}`}
       >
