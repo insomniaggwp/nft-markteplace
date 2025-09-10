@@ -3,6 +3,7 @@ interface NFTCardProps {
   title: string;
   avatar?: string;
   artist?: string;
+  withFooter?: boolean;
 }
 
 export default function NFTCard({
@@ -10,6 +11,7 @@ export default function NFTCard({
   title,
   avatar,
   artist,
+  withFooter = false,
 }: NFTCardProps) {
   return (
     <div className="card-nft flex flex-col">
@@ -20,6 +22,18 @@ export default function NFTCard({
           <div className="flex gap-2 mt-2">
             <img src={avatar} width={24} height={24} />
             <p>{artist}</p>
+          </div>
+        )}
+        {withFooter && (
+          <div className="flex justify-between mt-5">
+            <div>
+              <p className="text-button-size">Price</p>
+              <p>1.63 ETH</p>
+            </div>
+            <div className="text-right">
+              <p className="text-button-size">Highest Bid</p>
+              <p>0.33 wETH</p>
+            </div>
           </div>
         )}
       </div>

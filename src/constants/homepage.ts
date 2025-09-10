@@ -182,4 +182,37 @@ const CATEGORIES: Category[] = [
   }
 ]
 
-export { TOP_CREATORS, TRENDINGS, CATEGORIES };
+const DISCOVERY: NFT[] = [
+  {
+    id: 1,
+    title: 'Distant Galaxy',
+    image: '/nfts/discovery1.svg',
+    artist: {
+      id: 1,
+      name: 'MoonDancer',
+      avatar: '/artists/MoonDancer.svg'
+    },
+  },
+  {
+    id: 2,
+    title: 'Life On Edena',
+    image: '/nfts/discovery2.svg',
+    artist: {
+      id: 1,
+      name: 'NebulaKid',
+      avatar: '/artists/NebulaKid.svg'
+    },
+  },
+  {
+    id: 3,
+    title: 'Distant Galaxy',
+    image: '/nfts/discovery3.svg',
+    artist: {
+      id: 1,
+      name: 'Spaceone',
+      avatar: '/artists/Spaceone.svg'
+    },
+  }
+];
+
+export { TOP_CREATORS, TRENDINGS, CATEGORIES, DISCOVERY };

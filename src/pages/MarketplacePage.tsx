@@ -4,7 +4,12 @@ import Button from '../components/Button';
 import { login } from '../services/authService';
 import NFTCard from '@/components/NFTCard';
 import Section from '@/templates/Section';
-import { TRENDINGS, TOP_CREATORS, CATEGORIES } from '@/constants/homepage';
+import {
+  TRENDINGS,
+  TOP_CREATORS,
+  CATEGORIES,
+  DISCOVERY,
+} from '@/constants/homepage';
 
 const GetStarted = ({ className }: { className?: string }) => {
   return (
@@ -118,7 +123,13 @@ const MarketplacePage = () => {
             </p>
           </div>
           <div>
-            <Button variant="secondary">View Rankings</Button>
+            <Button variant="outline">
+              <img
+                src="/icon_outline/RocketLaunchPurple.svg"
+                className="mr-2"
+              />
+              View Rankings
+            </Button>
           </div>
         </div>
         <div className="creators-wrapper grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -158,6 +169,36 @@ const MarketplacePage = () => {
               image={category.image}
               title={category.title}
             />
+          ))}
+        </div>
+      </Section>
+
+      {/* discovery */}
+      <Section className="flex-col w-full">
+        <div className="header w-full flex justify-between">
+          <div>
+            <h2 className="text-headline-size">Discover More NFTs</h2>
+            <p className="text-subheadline-size">Explore new trending NFTs</p>
+          </div>
+          <div>
+            <Button variant="outline">
+              <img src="/icon_outline/Eye.svg" className="mr-2" />
+              See All
+            </Button>
+          </div>
+        </div>
+        <div className="discovery-wrapper flex flex-col md:flex-row gap-8">
+          {DISCOVERY.map((discovery) => (
+            <div className="flex-1">
+              <NFTCard
+                key={discovery.id}
+                image={discovery.image}
+                title={discovery.title || ''}
+                artist={discovery.artist?.name}
+                avatar={discovery.artist?.avatar}
+                withFooter={true}
+              />
+            </div>
           ))}
         </div>
       </Section>

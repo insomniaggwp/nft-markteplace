@@ -2,6 +2,7 @@ export interface NFT {
   id: number;
   title?: string;
   image: string;
+  artist?: Artist;
 }
 
 export interface Artist {

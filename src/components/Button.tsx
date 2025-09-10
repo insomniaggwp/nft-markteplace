@@ -1,4 +1,4 @@
-type Variant = 'primary' | 'secondary' | 'tertiary';
+type Variant = 'primary' | 'secondary' | 'tertiary' | 'outline';
 type typeButton = 'button' | 'submit' | 'reset';
 
 interface ButtonProp {
@@ -25,6 +25,7 @@ export default function Button({
     primary: ' text-neutral h-[72px]',
     secondary: 'text-neutral h-[60px]',
     tertiary: 'h-[46px]',
+    outline: 'text-neutral h-[60px] bg-transparent',
   };
 
   return (
