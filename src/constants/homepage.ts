@@ -14,6 +14,13 @@ interface Category {
   image: string;
 }
 
+interface Hiw {
+  id: number;
+  title: string;
+  subtitle: string;
+  image: string;
+}
+
 const TRENDINGS: Trending[] = [
   {
     id: 1,
@@ -215,4 +222,25 @@ const DISCOVERY: NFT[] = [
   }
 ];
 
-export { TOP_CREATORS, TRENDINGS, CATEGORIES, DISCOVERY };
+const HIW: Hiw[] = [
+  {
+    id: 1,
+    title: 'Setup Your wallet',
+    subtitle: 'Set up your wallet of choice. Connect it to the NFT market by clicking the wallet icon in the top right corner.',
+    image: '/hiw1.svg'
+  },
+  {
+    id: 2,
+    title: 'Create Collection',
+    subtitle: 'Upload your work and setup your collection. Add a description, social links and floor price.',
+    image: '/hiw2.svg'
+  },
+  {
+    id: 3,
+    title: 'Start Earning',
+    subtitle: 'Choose between auctions and fixed-price listings. Start earning by selling your NFTs or trading others.',
+    image: '/hiw3.svg'
+  }
+]
+
+export { TOP_CREATORS, TRENDINGS, CATEGORIES, DISCOVERY, HIW };

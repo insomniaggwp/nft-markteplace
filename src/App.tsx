@@ -3,7 +3,7 @@ import CreateAccountPage from './pages/CreateAccountPage';
 import DashboardPage from './pages/DashboardPage';
 import GlobalLoading from './components/GlobalLoading';
 import BaseTemplate from './templates/BaseTemplate';
-import MarketplacePage from './pages/MarketplacePage';
+import HomePage from './pages/HomePage';
 
 function App() {
   return (
@@ -27,10 +27,10 @@ function App() {
           }
         />
         <Route
-          path="/marketplace"
+          path="/homepage"
           element={
             <BaseTemplate>
-              <MarketplacePage />
+              <HomePage />
             </BaseTemplate>
           }
         />
