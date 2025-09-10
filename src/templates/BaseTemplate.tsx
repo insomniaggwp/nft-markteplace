@@ -22,7 +22,7 @@ const BaseTemplate = ({ children }: BaseTemplateProps) => {
           {/* Logo / Judul */}
           <button
             className="hover:cursor-pointer"
-            onClick={() => navigate(`/marketplace`)}
+            onClick={() => navigate(`/`)}
           >
             <img src="/icon_outline/Logo.svg" alt="Logo" />
           </button>

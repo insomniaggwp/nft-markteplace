@@ -2,7 +2,7 @@ const NAVIGATION = [
   {
     id: 1,
     label: 'Marketplace',
-    route: '/homepage'
+    route: '/marketplace'
   },
   {
     id: 2,

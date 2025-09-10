@@ -1,9 +1,9 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import CreateAccountPage from './pages/CreateAccountPage';
-import DashboardPage from './pages/DashboardPage';
 import GlobalLoading from './components/GlobalLoading';
 import BaseTemplate from './templates/BaseTemplate';
 import HomePage from './pages/HomePage';
+import ConnectToWalletPage from './pages/ConnectToWallet';
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
           path="/"
           element={
             <BaseTemplate>
-              <DashboardPage />
+              <HomePage />
             </BaseTemplate>
           }
         />
@@ -27,10 +27,10 @@ function App() {
           }
         />
         <Route
-          path="/homepage"
+          path="/connect-wallet"
           element={
             <BaseTemplate>
-              <HomePage />
+              <ConnectToWalletPage />
             </BaseTemplate>
           }
         />
