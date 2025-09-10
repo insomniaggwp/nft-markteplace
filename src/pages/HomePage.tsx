@@ -86,7 +86,7 @@ const HomePage = () => {
           <NFTCard
             image="/nfts/space_walking.svg"
             title="Space Walking"
-            avatar="/artists/AnimaKid.svg"
+            avatar="/artists/top_artists/AnimaKid.svg"
             artist="AnimaKid"
           />
         </div>

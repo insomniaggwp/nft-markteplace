@@ -27,7 +27,7 @@ const TRENDINGS: Trending[] = [
     artist: {
       id: 1,
       name: 'MrFox',
-      avatar: '/artists/mrfox.svg'
+      avatar: '/artists/top_artists/mrfox.svg'
     },
     preview: '/nfts/animal1.svg',
     category: 'DSGN Animals',
@@ -47,7 +47,7 @@ const TRENDINGS: Trending[] = [
     artist: {
       id: 1,
       name: 'Shroomie',
-      avatar: '/artists/Shroomie.svg'
+      avatar: '/artists/top_artists/Shroomie.svg'
     },
     preview: '/nfts/plant1.svg',
     category: 'Magic Mushrooms',
@@ -67,7 +67,7 @@ const TRENDINGS: Trending[] = [
     artist: {
       id: 1,
       name: 'BeKind2Robots',
-      avatar: '/artists/bekind2robots.svg'
+      avatar: '/artists/top_artists/bekind2robots.svg'
     },
     preview: '/nfts/robot1.svg',
     category: 'Disco Machines',
@@ -197,7 +197,7 @@ const DISCOVERY: NFT[] = [
     artist: {
       id: 1,
       name: 'MoonDancer',
-      avatar: '/artists/MoonDancer.svg'
+      avatar: '/artists/top_artists/MoonDancer.svg'
     },
   },
   {
@@ -207,7 +207,7 @@ const DISCOVERY: NFT[] = [
     artist: {
       id: 1,
       name: 'NebulaKid',
-      avatar: '/artists/NebulaKid.svg'
+      avatar: '/artists/top_artists/NebulaKid.svg'
     },
   },
   {
@@ -217,7 +217,7 @@ const DISCOVERY: NFT[] = [
     artist: {
       id: 1,
       name: 'Spaceone',
-      avatar: '/artists/Spaceone.svg'
+      avatar: '/artists/top_artists/Spaceone.svg'
     },
   }
 ];
