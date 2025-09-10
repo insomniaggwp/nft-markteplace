@@ -70,7 +70,7 @@ const BaseTemplate = ({ children }: BaseTemplateProps) => {
         {children}
       </div>
 
-      <footer className="bg-primary text-neutral py-8 px-12">
+      <footer className="bg-primary text-neutral py-8 px-8 md:px-16 ">
         <div className="max-w-[980px] m-auto flex flex-col md:flex-row justify-between gap-5">
           {/* Kolom 1 */}
           <div className="flex-1 flex flex-col gap-6">

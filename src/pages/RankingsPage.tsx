@@ -3,6 +3,7 @@ import useInput from '@/hooks/useInput';
 import Section from '@/templates/Section';
 import { useState } from 'react';
 import { ARTISTS } from '@/constants/artist';
+import { useNavigate } from 'react-router-dom';
 
 interface Tab {
   label: string;
@@ -19,6 +20,8 @@ const tabs: Tab[] = [
 const RankingsPage = () => {
   const [searchNft, onSearchNft] = useInput('');
   const [activeTab, setActiveTab] = useState('nfts');
+
+  const navigate = useNavigate();
 
   return (
     <div className="w-full md:flex items-center justify-center bg-primary-darken text-neutral flex flex-col">
@@ -74,7 +77,12 @@ const RankingsPage = () => {
               <p className="flex items-center justify-center bg-none lg:bg-primary-darken rounded-2xl w-8 h-8">
                 {artist.id}
               </p>
-              <img src={artist.avatar} width={60} height={60} />
+              <img
+                src={artist.avatar}
+                width={60}
+                height={60}
+                onClick={() => navigate(`/artist`)}
+              />
               <p className="flex-2 text-body-size sm:text-normal-size font-semibold">
                 {artist.name}
               </p>

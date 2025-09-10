@@ -22,7 +22,7 @@ const MarketplacePage = () => {
 
   return (
     <div className="w-full md:flex items-center justify-center bg-primary-darken text-neutral flex flex-col">
-      <Section className="flex-col">
+      <Section className="flex-col !pb-0">
         <div className="header w-full flex flex-col justify-between">
           <h2 className="text-headline-size font-semibold">
             Browse Marketplace

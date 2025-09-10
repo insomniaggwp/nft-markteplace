@@ -6,6 +6,8 @@ import HomePage from './pages/HomePage';
 import ConnectToWalletPage from './pages/ConnectToWallet';
 import MarketplacePage from './pages/MarketplacePage';
 import RankingsPage from './pages/RankingsPage';
+import ArtistPage from './pages/ArtistPage';
+import NftPage from './pages/NftPage';
 
 function App() {
   return (
@@ -49,6 +51,22 @@ function App() {
           element={
             <BaseTemplate>
               <CreateAccountPage />
+            </BaseTemplate>
+          }
+        />
+        <Route
+          path="/artist"
+          element={
+            <BaseTemplate>
+              <ArtistPage />
+            </BaseTemplate>
+          }
+        />
+        <Route
+          path="/nft"
+          element={
+            <BaseTemplate>
+              <NftPage />
             </BaseTemplate>
           }
         />
