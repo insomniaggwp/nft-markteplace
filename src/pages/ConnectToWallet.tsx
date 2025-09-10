@@ -28,7 +28,7 @@ const ConnectToWalletPage = () => {
               className="w-full flex justify-start !pl-8 gap-2"
             >
               <img src="/wallet1.svg" />
-              <span className="text-bold">Metamask</span>
+              <span className="font-bold">Metamask</span>
             </Button>
             <Button
               type="submit"
@@ -36,7 +36,7 @@ const ConnectToWalletPage = () => {
               className="w-full flex justify-start !pl-8 gap-2"
             >
               <img src="/wallet2.svg" />
-              <span className="text-bold">Wallet Connect</span>
+              <span className="font-bold">Wallet Connect</span>
             </Button>
             <Button
               type="submit"
@@ -44,7 +44,7 @@ const ConnectToWalletPage = () => {
               className="w-full flex justify-start !pl-8 gap-2"
             >
               <img src="/wallet3.svg" />
-              <span className="text-bold">Coinbase</span>
+              <span className="font-bold">Coinbase</span>
             </Button>
           </div>
         </div>

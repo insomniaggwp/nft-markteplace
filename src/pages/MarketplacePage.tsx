@@ -2,7 +2,7 @@ import InputField from '@/components/InputField';
 import useInput from '@/hooks/useInput';
 import Section from '@/templates/Section';
 import { useState } from 'react';
-import { NFTS } from '@/constants/marketplace';
+import { NFTS } from '@/constants/nft';
 import NFTCard from '@/components/NFTCard';
 
 interface Tab {
@@ -24,7 +24,7 @@ const MarketplacePage = () => {
     <div className="w-full md:flex items-center justify-center bg-primary-darken text-neutral flex flex-col">
       <Section className="flex-col">
         <div className="header w-full flex flex-col justify-between">
-          <h2 className="text-headline-size text-semibold">
+          <h2 className="text-headline-size font-semibold">
             Browse Marketplace
           </h2>
           <p className="text-subheadline-size">

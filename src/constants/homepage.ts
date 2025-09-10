@@ -1,4 +1,4 @@
-import { NFT, Artist } from "./nfts";
+import { NFT, Artist } from "./artist";
 
 interface Trending {
   id: number;
@@ -88,62 +88,62 @@ const TOP_CREATORS: Artist[] = [
   {
     id: 1,
     name: 'Keepitreal',
-    avatar: '/artists/keepitreal.svg'
+    avatar: '/artists/top_artists/keepitreal.svg'
   },
   {
     id: 2,
     name: 'DigiLab',
-    avatar: '/artists/DigiLab.svg'
+    avatar: '/artists/top_artists/DigiLab.svg'
   },
   {
     id: 3,
     name: 'GravityOne',
-    avatar: '/artists/GravityOne.svg'
+    avatar: '/artists/top_artists/GravityOne.svg'
   },
   {
     id: 4,
     name: 'Juanie',
-    avatar: '/artists/Juanie.svg'
+    avatar: '/artists/top_artists/Juanie.svg'
   },
   {
     id: 5,
     name: 'BlueWhale',
-    avatar: '/artists/BlueWhale.svg'
+    avatar: '/artists/top_artists/BlueWhale.svg'
   },
   {
     id: 6,
     name: 'mr fox',
-    avatar: '/artists/mrfox.svg'
+    avatar: '/artists/top_artists/mrfox.svg'
   },
   {
     id: 7,
     name: 'Shroomie',
-    avatar: '/artists/Shroomie.svg'
+    avatar: '/artists/top_artists/Shroomie.svg'
   },
   {
     id: 8,
     name: 'Robotica',
-    avatar: '/artists/Robotica.svg'
+    avatar: '/artists/top_artists/Robotica.svg'
   },
   {
     id: 9,
     name: 'RustyRobot',
-    avatar: '/artists/RustyRobot.svg'
+    avatar: '/artists/top_artists/RustyRobot.svg'
   },
   {
     id: 10,
     name: 'AnimaKid',
-    avatar: '/artists/AnimaKid.svg'
+    avatar: '/artists/top_artists/AnimaKid.svg'
   },
   {
     id: 11,
     name: 'Dotgu',
-    avatar: '/artists/Dotgu.svg'
+    avatar: '/artists/top_artists/Dotgu.svg'
   },
   {
     id: 12,
     name: 'Ghiblier',
-    avatar: '/artists/Ghiblier.svg'
+    avatar: '/artists/top_artists/Ghiblier.svg'
   },
 ]
 
