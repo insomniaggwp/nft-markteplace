@@ -4,6 +4,8 @@ import GlobalLoading from './components/GlobalLoading';
 import BaseTemplate from './templates/BaseTemplate';
 import HomePage from './pages/HomePage';
 import ConnectToWalletPage from './pages/ConnectToWallet';
+import MarketplacePage from './pages/MarketplacePage';
+import RankingsPage from './pages/RankingsPage';
 
 function App() {
   return (
@@ -19,10 +21,18 @@ function App() {
           }
         />
         <Route
-          path="/create-account"
+          path="/marketplace"
           element={
             <BaseTemplate>
-              <CreateAccountPage />
+              <MarketplacePage />
+            </BaseTemplate>
+          }
+        />
+        <Route
+          path="/rankings"
+          element={
+            <BaseTemplate>
+              <RankingsPage />
             </BaseTemplate>
           }
         />
@@ -31,6 +41,14 @@ function App() {
           element={
             <BaseTemplate>
               <ConnectToWalletPage />
+            </BaseTemplate>
+          }
+        />
+        <Route
+          path="/create-account"
+          element={
+            <BaseTemplate>
+              <CreateAccountPage />
             </BaseTemplate>
           }
         />

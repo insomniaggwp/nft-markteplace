@@ -4,6 +4,7 @@ interface NFTCardProps {
   avatar?: string;
   artist?: string;
   withFooter?: boolean;
+  className?: string;
 }
 
 export default function NFTCard({
@@ -12,11 +13,14 @@ export default function NFTCard({
   avatar,
   artist,
   withFooter = false,
+  className,
 }: NFTCardProps) {
   return (
     <div className="card-nft flex flex-col">
       <img src={image} className="flex-[1.7] w-[100%]" />
-      <div className="flex-[0.3] p-5 bg-primary-lighten rounded rounded-b-3xl">
+      <div
+        className={`flex-[0.3] p-5 bg-primary-lighten rounded rounded-b-3xl ${className}`}
+      >
         <h3 className="font-bold">{title}</h3>
         {artist && (
           <div className="flex gap-2 mt-2">

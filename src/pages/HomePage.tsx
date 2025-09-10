@@ -249,7 +249,7 @@ const HomePage = () => {
 
       {/* join */}
       <Section>
-        <div className="flex flex-col sm:flex bg-primary-lighten w-full p-16 rounded rounded-xl">
+        <div className="flex flex-col sm:flex-row bg-primary-lighten w-full p-16 rounded rounded-xl">
           <div className="flex-1">
             <img src="/Astronout.svg" className="w-full" />
           </div>
