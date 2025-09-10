@@ -1,51 +1,41 @@
-# 📱 Social Media Content Generator
+# 🚀 NFT Marketplace - Frontend Engineer Technical Test
 
 ## 📝 Description
 
-**Social Media Content Generator** is a web application designed to help marketers create Instagram content with ease. It leverages the power of AI to generate relevant captions and images, streamlining the content creation process. Users can save campaigns locally and manage them through an intuitive user interface.
+\*\*This project is a Frontend Engineer Technical Test implementation for an NFT Marketplace UI.
+The goal is to create a pixel-perfect, production-quality UI based on the given Figma design and reference site.
 
 ---
+
+## Demo
+
+🔗 Live Deployment: Vercel Link Here
 
 ## 🛠️ Tech Stack
 
-- **Frontend:** Vite + React.js
-  I use Vite because it enables fast development, and React because I am familiar with it.
-- **Styling:** Tailwind CSS
-- **AI Integration:** OpenAI API
-- **Backend (Mock):** JSON Server
+- **Framework:** React 18 + Typescript
+- **Build Tool:** Vercel
+- **Styling:** Tailwind
+- **Version Control:** Github
+- **Deployment:** Vercel
+
+## 🎯 Scope
+
+- Recreated NFT Marketplace UI based on the provided [Figma design](https://www.figma.com/design/eYpAyb9V2QQQt5vP6anbDv/NFT-Marketplace-Template---Create-an-NFT-website-in-minutes--Community-?node-id=1647-17907&t=tbw8BqNWGiv3UHjJ-1).
+- Reference Implementation: [NFT Marketplace Preview](https://nft-market-place.animaapp.io).
+
+Matched design and interactions as closely as possible (pixel-perfect approach).
+Responsive layout for desktop, tablet, and mobile.
 
 ---
-
-## Project Structure
-
-.
-├── db/ # Local mock database folder<br />
-│ ├── campaigns.json # Main campaign data used by json-server<br />
-│ └── campaigns.backup.json # Backup of campaign data<br />
-├── public/ # Public static assets<br />
-├── src/ # Source code<br />
-│ ├── assets/ # Images and static assets<br />
-│ ├── components/ # Reusable UI components<br />
-│ ├── hooks/ # Custom React hooks<br />
-│ ├── pages/ # Page-level components/routes<br />
-│ ├── routes/ # Application route definitions<br />
-│ ├── services/ # API and business logic<br />
-│ ├── templates/ # Content or layout templates<br />
-│ └── utils/ # Utility/helper functions<br />
-├── App.jsx # Main app component<br />
-├── index.css # Tailwind and global styles<br />
-├── main.jsx # App entry point<br />
-├── .env # Environment variable config (not committed)<br />
-├── .gitignore # Files to ignore in git<br />
-└── package.json # Project metadata and scripts<br />
 
 ## 🚀 Getting Started
 
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/insomniaggwp/candidate_arif_hidayat_fe_2025_ai.git
-cd candidate_arif_hidayat_fe_2025_ai
+git clone hhttps://github.com/insomniaggwp/nft-markteplace.git
+cd nft-markteplace
 ```
 
 ### 2. Install Dependencies
@@ -54,31 +44,18 @@ cd candidate_arif_hidayat_fe_2025_ai
 npm install
 ```
 
-### 3. Setup Environment Variables
-
-```bash
-VITE_API_BASE_URL=/api
-VITE_OPENAI_API_URL=https://api.openai.com/v1/chat/completions
-VITE_GPT_KEY=your-openai-api-key
-```
-
-### 4. Run the Frontend
+### 3. Run the Frontend
 
 ```bash
 npm run dev
 ```
 
-### 5. Run the Mock Backend
+## 🚀 Pages
 
-```bash
-npm run reset-mock
-json-server npm run mock-api
-```
-
-## 🚀 Features
-
-0. Login Authentication (Simple)
-1. Content Creation Form
-2. AI Content Generation
-3. Preview & Editor
-4. Content Management
+0. Home Page
+1. Create Account Page
+2. Marketplace Page
+3. Rankings Page
+4. Connect to Wallet Page
+5. Artist Page
+6. Nft Page
