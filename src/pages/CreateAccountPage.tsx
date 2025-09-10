@@ -2,7 +2,6 @@ import { useNavigate } from 'react-router-dom';
 import InputField from '../components/InputField';
 import Button from '../components/Button';
 import useInput from '../hooks/useInput';
-import { login } from '../services/authService';
 
 const CreateAccountPage = () => {
   const [username, onUsernameChange] = useInput('');
@@ -11,16 +10,6 @@ const CreateAccountPage = () => {
   const [confirmPassword, onConfirmPassword] = useInput('');
 
   const navigate = useNavigate();
-
-  const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const isSuccessLogin = await login({ username, password });
-    if (isSuccessLogin) {
-      navigate('/dashboard');
-    } else {
-      alert('Wrong Username or Password');
-    }
-  };
 
   return (
     <div className="md:flex items-center justify-center">
@@ -32,7 +21,7 @@ const CreateAccountPage = () => {
         />
       </div>
       <div className="flex-1">
-        <form onSubmit={handleLogin} className="p-10 flex flex-col gap-8">
+        <form className="p-10 flex flex-col gap-8">
           <div className="max-w-[460px] flex flex-col gap-5">
             <h1 className="text-headline-size font-bold">Create account</h1>
             <h2>
