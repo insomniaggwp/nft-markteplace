@@ -8,6 +8,12 @@ interface Trending {
   nfts: NFT[];
 }
 
+interface Category {
+  id: number;
+  title: string;
+  image: string;
+}
+
 const TRENDINGS: Trending[] = [
   {
     id: 1,
@@ -134,4 +140,46 @@ const TOP_CREATORS: Artist[] = [
   },
 ]
 
-export { TOP_CREATORS, TRENDINGS };
+const CATEGORIES: Category[] = [
+  {
+    id: 1,
+    image: '/categories/category_art.svg',
+    title: 'Art'
+  },
+  {
+    id: 2,
+    image: '/categories/category_collectibless.svg',
+    title: 'Collectibles'
+  },
+  {
+    id: 3,
+    image: '/categories/category_music.svg',
+    title: 'Music'
+  },
+  {
+    id: 4,
+    image: '/categories/category_photography.svg',
+    title: 'Photohraphy'
+  }, {
+    id: 5,
+    image: '/categories/category_video.svg',
+    title: 'Video'
+  },
+  {
+    id: 6,
+    image: '/categories/category_utility.svg',
+    title: 'Utility'
+  },
+  {
+    id: 7,
+    image: '/categories/category_sport.svg',
+    title: 'Sport'
+  },
+  {
+    id: 8,
+    image: '/categories/category_virtual.svg',
+    title: 'Virtual World'
+  }
+]
+
+export { TOP_CREATORS, TRENDINGS, CATEGORIES };

@@ -4,7 +4,7 @@ import Button from '../components/Button';
 import { login } from '../services/authService';
 import NFTCard from '@/components/NFTCard';
 import Section from '@/templates/Section';
-import { TRENDINGS, TOP_CREATORS } from '@/constants/homepage';
+import { TRENDINGS, TOP_CREATORS, CATEGORIES } from '@/constants/homepage';
 
 const GetStarted = ({ className }: { className?: string }) => {
   return (
@@ -140,6 +140,24 @@ const MarketplacePage = () => {
                 </p>
               </div>
             </div>
+          ))}
+        </div>
+      </Section>
+
+      {/* categories */}
+      <Section className="flex-col">
+        <div className="header w-full flex justify-between">
+          <div>
+            <h2 className="text-headline-size">Browse Categories</h2>
+          </div>
+        </div>
+        <div className="categories-wrapper grid grid-cols-2 sm:grid-cols-4 gap-8">
+          {CATEGORIES.map((category) => (
+            <NFTCard
+              key={category.id}
+              image={category.image}
+              title={category.title}
+            />
           ))}
         </div>
       </Section>
